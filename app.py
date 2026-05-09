@@ -1,5 +1,5 @@
 import streamlit as st
-
+from PIL import Image
 st.set_page_config(
     page_title="OmanRA-Stratify AI",
     page_icon="🧬",
@@ -161,3 +161,15 @@ div[data-testid="stAlert"] {
 }
 </style>
 """, unsafe_allow_html=True)
+
+logo = Image.open("SQU-LOGO.png")
+
+col1, col2 = st.columns([1,5])
+
+with col1:
+    st.image(logo, width=120)
+
+with col2:
+    st.title("🧬 OmanRA-Stratify AI")
+    st.subheader("AI Prototype for Rheumatoid Arthritis Endotyping and Personalized Therapy")
+
