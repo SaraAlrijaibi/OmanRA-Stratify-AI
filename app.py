@@ -100,3 +100,64 @@ if st.button("Generate AI Patient Report"):
         f"Based on the entered biomarkers, the suggested personalized treatment is {therapy}. "
         f"Monitoring should focus on {biomarkers}."
     )
+
+st.markdown("""
+<style>
+.stApp {
+    background: linear-gradient(135deg, #eef7ff 0%, #f8f3ff 45%, #ffffff 100%);
+}
+
+h1 {
+    color: #12355B;
+    text-align: center;
+    font-size: 46px !important;
+    font-weight: 800;
+}
+
+h2, h3 {
+    color: #246A73;
+}
+
+[data-testid="stHeader"] {
+    background: transparent;
+}
+
+.block-container {
+    padding-top: 2rem;
+    max-width: 1100px;
+}
+
+.stButton>button {
+    background: linear-gradient(90deg, #246A73, #6A4C93);
+    color: white;
+    border-radius: 14px;
+    height: 52px;
+    width: 100%;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+}
+
+.stButton>button:hover {
+    background: linear-gradient(90deg, #1D4F57, #563A78);
+    color: white;
+}
+
+[data-testid="metric-container"] {
+    background-color: white;
+    border: 1px solid #e6e6f0;
+    border-radius: 18px;
+    padding: 18px;
+    box-shadow: 0px 6px 20px rgba(0,0,0,0.08);
+}
+
+.stNumberInput, .stSelectbox {
+    background-color: white;
+    border-radius: 12px;
+}
+
+div[data-testid="stAlert"] {
+    border-radius: 14px;
+}
+</style>
+""", unsafe_allow_html=True)
