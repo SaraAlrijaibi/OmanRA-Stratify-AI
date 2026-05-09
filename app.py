@@ -1,13 +1,103 @@
 import streamlit as st
 from PIL import Image
+
 st.set_page_config(
     page_title="OmanRA-Stratify AI",
     page_icon="🧬",
     layout="wide"
 )
 
+# ===== STYLE =====
+st.markdown("""
+<style>
+.stApp {
+    background: linear-gradient(135deg, #eef7ff 0%, #f8f3ff 45%, #ffffff 100%);
+}
+
+[data-testid="stHeader"] {
+    background: transparent;
+}
+
+.block-container {
+    padding-top: 1.5rem;
+    max-width: 1200px;
+}
+
+.main-title {
+    color: #12355B;
+    font-size: 46px;
+    font-weight: 800;
+    margin-bottom: 0px;
+}
+
+.subtitle {
+    color: #246A73;
+    font-size: 22px;
+    font-weight: 600;
+    margin-top: 0px;
+}
+
+.logo-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stButton>button {
+    background: linear-gradient(90deg, #246A73, #6A4C93);
+    color: white;
+    border-radius: 14px;
+    height: 52px;
+    width: 100%;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+}
+
+.stButton>button:hover {
+    background: linear-gradient(90deg, #1D4F57, #563A78);
+    color: white;
+}
+
+[data-testid="metric-container"] {
+    background-color: white;
+    border: 1px solid #e6e6f0;
+    border-radius: 18px;
+    padding: 18px;
+    box-shadow: 0px 6px 20px rgba(0,0,0,0.08);
+}
+
+div[data-testid="stAlert"] {
+    border-radius: 14px;
+}
+
+img {
+    border-radius: 14px;
+}
+</style>
+""", unsafe_allow_html=True)
+
+# ===== HEADER WITH SQU LOGO =====
+logo = Image.open("SQU-LOGO.png")
+
+col_logo, col_title = st.columns([1.2, 5])
+
+with col_logo:
+    st.image(logo, width=180)
+
+with col_title:
+    st.markdown("""
+    <div class="main-title">🧬 OmanRA-Stratify AI</div>
+    <div class="subtitle">AI Prototype for Rheumatoid Arthritis Endotyping and Personalized Therapy</div>
+    """, unsafe_allow_html=True)
+
+# ===== MEDICAL BANNER =====
+banner = Image.open("Medical-Bannr.jpg")
+st.image(banner, use_container_width=True)
+
 st.info("This is an academic prototype. It is not a diagnostic medical tool.")
 
+# ===== INPUT SECTION =====
 col1, col2 = st.columns(2)
 
 with col1:
@@ -36,6 +126,7 @@ with c3:
 with c4:
     gmcsf = st.number_input("GM-CSF", value=8.0)
 
+# ===== PREDICTION =====
 if st.button("Generate AI Patient Report"):
 
     if tnf > 50:
@@ -97,78 +188,3 @@ if st.button("Generate AI Patient Report"):
         f"Based on the entered biomarkers, the suggested personalized treatment is {therapy}. "
         f"Monitoring should focus on {biomarkers}."
     )
-
-st.markdown("""
-<style>
-.stApp {
-    background: linear-gradient(135deg, #eef7ff 0%, #f8f3ff 45%, #ffffff 100%);
-}
-
-h1 {
-    color: #12355B;
-    text-align: center;
-    font-size: 46px !important;
-    font-weight: 800;
-}
-
-h2, h3 {
-    color: #246A73;
-}
-
-[data-testid="stHeader"] {
-    background: transparent;
-}
-
-.block-container {
-    padding-top: 2rem;
-    max-width: 1100px;
-}
-
-.stButton>button {
-    background: linear-gradient(90deg, #246A73, #6A4C93);
-    color: white;
-    border-radius: 14px;
-    height: 52px;
-    width: 100%;
-    font-size: 18px;
-    font-weight: bold;
-    border: none;
-}
-
-.stButton>button:hover {
-    background: linear-gradient(90deg, #1D4F57, #563A78);
-    color: white;
-}
-
-[data-testid="metric-container"] {
-    background-color: white;
-    border: 1px solid #e6e6f0;
-    border-radius: 18px;
-    padding: 18px;
-    box-shadow: 0px 6px 20px rgba(0,0,0,0.08);
-}
-
-.stNumberInput, .stSelectbox {
-    background-color: white;
-    border-radius: 12px;
-}
-
-div[data-testid="stAlert"] {
-    border-radius: 14px;
-}
-</style>
-""", unsafe_allow_html=True)
-
-logo = Image.open("SQU-LOGO.png")
-
-col1, col2 = st.columns([1,5])
-
-with col1:
-    st.image(logo, width=120)
-
-with col2:
-    st.title("🧬 OmanRA-Stratify AI")
-    st.subheader("AI Prototype for Rheumatoid Arthritis Endotyping and Personalized Therapy")
-
-banner = Image.open("Medical-Bannr.jpg")
-st.image(banner, use_container_width=True)
