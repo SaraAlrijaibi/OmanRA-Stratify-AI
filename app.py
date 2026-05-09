@@ -6,9 +6,6 @@ st.set_page_config(
     layout="wide"
 )
 
-st.title("🧬 OmanRA-Stratify AI")
-st.subheader("AI Prototype for Rheumatoid Arthritis Endotyping and Personalized Therapy")
-
 st.info("This is an academic prototype. It is not a diagnostic medical tool.")
 
 col1, col2 = st.columns(2)
@@ -173,3 +170,5 @@ with col2:
     st.title("🧬 OmanRA-Stratify AI")
     st.subheader("AI Prototype for Rheumatoid Arthritis Endotyping and Personalized Therapy")
 
+banner = Image.open("Medical-Bannr.jpg")
+st.image(banner, use_container_width=True)
